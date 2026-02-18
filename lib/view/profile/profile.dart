@@ -51,224 +51,222 @@ class _ProfileState extends State<Profile> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          child: Expanded(
-            child: Column(
-              spacing: 10,
-              crossAxisAlignment: .start,
-              children: [
-                Center(
-                  child: CircleAvatar(
-                    radius: 45,
-                    child: Icon(Icons.person, size: 50),
+          child: Column(
+            spacing: 10,
+            crossAxisAlignment: .start,
+            children: [
+              Center(
+                child: CircleAvatar(
+                  radius: 45,
+                  child: Icon(Icons.person, size: 50),
+                ),
+              ),
+              SizedBox(height: 15),
+              Text(
+                'Personal Details',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'Email Address',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                SizedBox(height: 15),
-                Text(
-                  'Personal Details',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Email Address',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Text(
+                'Password',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: passwordController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Text(
-                  'Password',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              Align(
+                alignment: AlignmentGeometry.topRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text('Change Password'),
                 ),
-                TextField(
-                  controller: passwordController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Divider(indent: 30, endIndent: 30, thickness: 2),
+              Text(
+                'Business Address Detail',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'Pincode',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: pincodeController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentGeometry.topRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text('Change Password'),
+              ),
+              Text(
+                'Address',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: addressController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Divider(indent: 30, endIndent: 30, thickness: 2),
-                Text(
-                  'Business Address Detail',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Pincode',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: pincodeController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Text(
+                'City',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: cityController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Text(
-                  'Address',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: addressController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Text(
+                'State',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: stateController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Text(
-                  'City',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: cityController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Text(
+                'Country',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: countryController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Text(
-                  'State',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: stateController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Divider(indent: 30, endIndent: 30, height: 65),
+              Text(
+                'Bank Account Details',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'Bank Account Number',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: accNumberController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Text(
-                  'Country',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: countryController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Text(
+                'Account Holder Name',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: accHolderController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Divider(indent: 30, endIndent: 30, height: 65),
-                Text(
-                  'Bank Account Details',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Bank Account Number',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: accNumberController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+              ),
+              Text(
+                'IFSC Code',
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              TextField(
+                controller: ifscCodeController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Text(
-                  'Account Holder Name',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: accHolderController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                ),
-                Text(
-                  'IFSC Code',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
-                ),
-                TextField(
-                  controller: ifscCodeController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Align(
-                  alignment: AlignmentGeometry.topCenter,
-                  child: MyElevatedButton(
-                    onclick: () async {
-                      final preferences = await SharedPreferences.getInstance();
-                      await preferences.setString(
-                        'email',
-                        emailController.text,
-                      );
-                      await preferences.setString(
-                        'password',
-                        passwordController.text,
-                      );
-                      await preferences.setString(
-                        'pincode',
-                        pincodeController.text,
-                      );
-                      await preferences.setString(
-                        'address',
-                        addressController.text,
-                      );
-                      await preferences.setString('city', cityController.text);
-                      await preferences.setString(
-                        'state',
-                        stateController.text,
-                      );
-                      await preferences.setString(
-                        'country',
-                        countryController.text,
-                      );
-                      await preferences.setString(
-                        'accNumber',
-                        accNumberController.text,
-                      );
-                      await preferences.setString(
-                        'accHolder',
-                        accHolderController.text,
-                      );
-                      await preferences.setString(
-                        'ifscCode',
-                        ifscCodeController.text,
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.black,
-                          duration: Duration(seconds: 1),
-                          content: Text('Profile Saved'),
-                        ),
-                      );
-                    },
-                    child: Text('Save', style: TextStyle(fontSize: 18)),
-                  ),
-                ),
-                Align(
-                  alignment: .topCenter,
-                  child: TextButton(onPressed: () async {
+              ),
+              SizedBox(height: 20),
+              Align(
+                alignment: AlignmentGeometry.topCenter,
+                child: MyElevatedButton(
+                  onclick: () async {
                     final preferences = await SharedPreferences.getInstance();
-                    await preferences.setBool('isLoggedIn', false);
-                    context.goToNextWithRemoveUntil(SignIn());
-                  }, child: Text('Logout')),
+                    await preferences.setString(
+                      'email',
+                      emailController.text,
+                    );
+                    await preferences.setString(
+                      'password',
+                      passwordController.text,
+                    );
+                    await preferences.setString(
+                      'pincode',
+                      pincodeController.text,
+                    );
+                    await preferences.setString(
+                      'address',
+                      addressController.text,
+                    );
+                    await preferences.setString('city', cityController.text);
+                    await preferences.setString(
+                      'state',
+                      stateController.text,
+                    );
+                    await preferences.setString(
+                      'country',
+                      countryController.text,
+                    );
+                    await preferences.setString(
+                      'accNumber',
+                      accNumberController.text,
+                    );
+                    await preferences.setString(
+                      'accHolder',
+                      accHolderController.text,
+                    );
+                    await preferences.setString(
+                      'ifscCode',
+                      ifscCodeController.text,
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.black,
+                        duration: Duration(seconds: 1),
+                        content: Text('Profile Saved'),
+                      ),
+                    );
+                  },
+                  child: Text('Save', style: TextStyle(fontSize: 18)),
                 ),
-                SizedBox(height: 20),
-              ],
-            ),
+              ),
+              Align(
+                alignment: .topCenter,
+                child: TextButton(onPressed: () async {
+                  final preferences = await SharedPreferences.getInstance();
+                  await preferences.setBool('isLoggedIn', false);
+                  context.goToNextWithRemoveUntil(SignIn());
+                }, child: Text('Logout')),
+              ),
+              SizedBox(height: 20),
+            ],
           ),
         ),
       ),

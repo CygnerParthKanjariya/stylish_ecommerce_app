@@ -50,7 +50,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
 
                   TextButton(
                     onPressed: () {
-                      context.goToNextWithReplace(SignIn());
+                      context.goToNextWithRemoveUntil(SignIn());
                     },
                     child: Text("Skip"),
                   ),
@@ -115,7 +115,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                   TextButton(
                     onPressed: () {
                       if (currentIndex == onBoardList.length - 1) {
-                        context.goToNextWithReplace(SignIn());
+                        context.goToNextWithRemoveUntil(SignIn());
                       } else {
                         controller.nextPage(
                           duration: Duration(milliseconds: 400),

@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
 import 'package:stylish_ecommerce/view/auth/sign_in.dart';
 import 'package:stylish_ecommerce/widgets/my_button.dart';
@@ -128,7 +131,17 @@ class _SignUpState extends State<SignUp> {
               MyElevatedButton(
                 onclick: () {
                   if (_formKey.currentState?.validate() ?? false) {
-                    Future.delayed(Duration(seconds: 2), () {
+                    Future.delayed(Duration(seconds: 2), () async {
+                      final preferences = await SharedPreferences.getInstance();
+                      preferences.setBool('isLoggedIn', true);
+                      preferences.setString(
+                        "email",
+                        userOrEmailController.text,
+                      );
+                      preferences.setString(
+                        "password",
+                        passwordController.text,
+                      );
                       context.goToNextWithRemoveUntil(GetStarted());
                     });
                   } else {
@@ -146,7 +159,34 @@ class _SignUpState extends State<SignUp> {
                 spacing: 15,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleAvatar(child: Image.asset('assets/Google.png')),
+                  InkWell(
+                    onTap: () async {
+                      final FirebaseAuth auth = FirebaseAuth.instance;
+
+                      final GoogleSignIn signIn = GoogleSignIn.instance;
+                      await signIn.initialize();
+                      GoogleSignInAccount googleUser = await signIn
+                          .authenticate();
+                      final GoogleSignInAuthentication googleAuth =
+                          googleUser.authentication;
+                      final credential = GoogleAuthProvider.credential(
+                        idToken: googleAuth.idToken,
+                      );
+
+                      await FirebaseAuth.instance.signInWithCredential(
+                        credential,
+                      );
+                      if (auth.currentUser?.uid != null) {
+                        final preferences =
+                            await SharedPreferences.getInstance();
+                        preferences.setBool('isLoggedIn', true);
+                        context.goToNextWithRemoveUntil(GetStarted());
+                      }
+                    },
+                    child: CircleAvatar(
+                      child: Image.asset('assets/Google.png'),
+                    ),
+                  ),
                   CircleAvatar(child: Image.asset('assets/Apple.png')),
                   CircleAvatar(child: Image.asset('assets/Facebook (1).png')),
                 ],
