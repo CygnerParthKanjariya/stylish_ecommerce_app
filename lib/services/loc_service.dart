@@ -1,6 +1,6 @@
 import 'package:permission_handler/permission_handler.dart';
 
-class LocationService {
+class LocService {
   Future<bool> requestLocationPermission() async {
     PermissionStatus status = await Permission.location.request();
     if (status.isGranted) {

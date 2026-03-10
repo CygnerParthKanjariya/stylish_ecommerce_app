@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
@@ -209,10 +210,7 @@ class _ProfileState extends State<Profile> {
                 child: MyElevatedButton(
                   onclick: () async {
                     final preferences = await SharedPreferences.getInstance();
-                    await preferences.setString(
-                      'email',
-                      emailController.text,
-                    );
+                    await preferences.setString('email', FirebaseAuth.instance.currentUser!.email.toString());
                     await preferences.setString(
                       'password',
                       passwordController.text,
@@ -226,10 +224,7 @@ class _ProfileState extends State<Profile> {
                       addressController.text,
                     );
                     await preferences.setString('city', cityController.text);
-                    await preferences.setString(
-                      'state',
-                      stateController.text,
-                    );
+                    await preferences.setString('state', stateController.text);
                     await preferences.setString(
                       'country',
                       countryController.text,
@@ -259,11 +254,14 @@ class _ProfileState extends State<Profile> {
               ),
               Align(
                 alignment: .topCenter,
-                child: TextButton(onPressed: () async {
-                  final preferences = await SharedPreferences.getInstance();
-                  await preferences.setBool('isLoggedIn', false);
-                  context.goToNextWithRemoveUntil(SignIn());
-                }, child: Text('Logout')),
+                child: TextButton(
+                  onPressed: () async {
+                    final preferences = await SharedPreferences.getInstance();
+                    await preferences.setBool('isLoggedIn', false);
+                    context.goToNextWithRemoveUntil(SignIn());
+                  },
+                  child: Text('Logout'),
+                ),
               ),
               SizedBox(height: 20),
             ],

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stylish_ecommerce/services/loc_service.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
 import 'package:stylish_ecommerce/view/home/add_to_cart_tab/add_to_cart.dart';
 import 'package:stylish_ecommerce/view/home/home_tab/home_tab.dart';
@@ -6,6 +9,8 @@ import 'package:stylish_ecommerce/view/profile/profile.dart';
 import 'package:stylish_ecommerce/view/home/search_tab/search_tab.dart';
 import 'package:stylish_ecommerce/view/home/setting_tab/setting_tab.dart';
 import 'package:stylish_ecommerce/view/home/wishlist_tab/wishlist_tab.dart';
+
+import '../../providers/theme_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +22,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   PageController pageController = PageController();
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    getPermission();
+  }
+
+  Future<void> getPermission() async {
+    LocService permissionService = LocService();
+    bool granted = await permissionService.requestLocationPermission();
+    if (!granted) {
+      granted = await permissionService.requestLocationPermission();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

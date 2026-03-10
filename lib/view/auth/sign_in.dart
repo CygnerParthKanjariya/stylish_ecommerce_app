@@ -162,6 +162,10 @@ class _SignInState extends State<SignIn> {
                         final preferences =
                             await SharedPreferences.getInstance();
                         preferences.setBool('isLoggedIn', true);
+                        preferences.setString(
+                          "email",
+                          FirebaseAuth.instance.currentUser!.email.toString(),
+                        );
                         context.goToNextWithRemoveUntil(GetStarted());
                       }
                     },

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stylish_ecommerce/providers/theme_provider.dart';
 import 'package:stylish_ecommerce/utils/navigation_extenstion.dart';
 import 'package:stylish_ecommerce/view/home/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';

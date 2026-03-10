@@ -46,7 +46,10 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("${currentIndex + 1}/${onBoardList.length}"),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text("${currentIndex + 1}/${onBoardList.length}"),
+                  ),
 
                   TextButton(
                     onPressed: () {
